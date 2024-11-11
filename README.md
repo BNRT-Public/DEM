@@ -1,2 +1,5 @@
 # DEM (Discrete Element Method)
-DEM parallel
+
+Programa de Metodos de Elementos Discretos.
+
+

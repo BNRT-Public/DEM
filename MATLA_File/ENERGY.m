@@ -1,7 +1,7 @@
 %% Programa para Verificacion de Energia en DEM
 % Boris Rojo Tanzi
-% 23/10/2018
-% 
+% 28/11/2022
+%
 close all
 clear all
 clc
@@ -13,40 +13,75 @@ path = cd ;
 Nfile = fullfile(path, file);
 
 if ~isequal(file,0)
-   DATA = dlmread(Nfile,',',1,0);
-   
-%  ENEX = Trabalho externo realizado sobre o modelo
-%  ENIN = Energia interna total dissipada ou acumulada
-%  ENCN = Energia cinetica total do modelo
-%  ENEL = Energia elastica total presente no modelo
-%  ENDP = Energia dissipada por amortecimento
-%  ENGD = Energia dissipada pelo efeito de amolecimento (strain softening)
-%         (somatoria sobre todas as barras)
-%  DEN  = Diferencia entre energia externa e interna
-%         (quanto menor este valor, mais preciso ? o resultado)
+    format long;
+    opts = delimitedTextImportOptions("NumVariables", 11);
 
-   Time = DATA(:,1);
-   EnEx = DATA(:,2);
-   EnCn = DATA(:,3);
-   EnEl = DATA(:,4);
-   EnGd = DATA(:,5);
-   EnDp = DATA(:,6);
-   EnIn = DATA(:,7);
-   DEn  = DATA(:,8);
-   clearvars('DATA')
-   
-   fig1 = figure();
-   axes1 = axes('Parent',fig1);
-   hold(axes1,'on');
-   p(1) = plot(Time,EnCn,'b');
-   p(2) = plot(Time,EnEl,'r');
-   p(3) = plot(Time,EnGd,'g');
-   p(4) = plot(Time,EnDp,'m');
-   legend('Kinetic','Elastic','ENGD','ENDP','Location','northwest');
-   xlabel('Time');
-   ylabel('Energia');
-   set(axes1,'FontSize',14);
-   set(p,'LineWidth',1.5);
-   grid on
-   box on
+    opts.DataLines = [2, Inf];
+    opts.Delimiter = ",";
+
+    opts.VariableNames = ["TIME", "ENEX", "ENCN", "ENEL", "ENGD", ...
+        "ENDP", "ENIN", "ENCND", "ENELD", "ENGDD", "ENDPD"];
+    opts.VariableTypes = ["double", "double", "double", "double", "double", ...
+        "double", "double", "double", "double", "double", "double"];
+    opts.ExtraColumnsRule = "ignore";
+    opts.EmptyLineRule = "read";
+    opts = setvaropts(opts, ["TIME", "ENEX", "ENCN", "ENEL", "ENGD", ...
+        "ENDP", "ENIN", "ENCND", "ENELD", "ENGDD", "ENDPD"], "FillValue", Inf);
+
+    DATA = readtable(Nfile, opts);
+    %  ENEX = Trabalho externo realizado sobre o modelo
+    %  ENIN = Energia interna total dissipada ou acumulada
+    %  ENCN = Energia cinetica total do modelo
+    %  ENEL = Energia elastica total presente no modelo
+    %  ENDP = Energia dissipada por amortecimento
+    %  ENGD = Energia dissipada pelo efeito de amolecimento
+    %  DEN  = Diferencia entre energia externa e interna
+
+    clearvars('opts')
+
+    fig1 = figure();
+    axes1 = axes('Parent',fig1);
+    hold(axes1,'on');
+    p(1) = plot(DATA.TIME,DATA.ENCN,'b','DisplayName','Kinetic');
+    p(2) = plot(DATA.TIME,DATA.ENEL,'r','DisplayName','Elastic');
+    p(3) = plot(DATA.TIME,DATA.ENGD,'g','DisplayName','ENGD');
+    p(4) = plot(DATA.TIME,DATA.ENDP,'m','DisplayName','ENDP');
+    legend('Location','northwest');
+    xlabel('Time');
+    ylabel('Energy');
+    set(axes1,'FontSize',14);
+    set(p,'LineWidth',1.5);
+    grid on
+    box on
+    saveas(gcf,fullfile(path,'Energy.png'))
+
+    difEC = [0; diff(DATA.ENCN)./diff(DATA.TIME)];
+    difEL = [0; diff(DATA.ENEL)./diff(DATA.TIME)];
+    difEG = [0; diff(DATA.ENGD)./diff(DATA.TIME)];
+    fig2 = figure();
+    axes2 = axes('Parent',fig2);
+    hold(axes2,'on');
+    p(1) = plot(DATA.TIME,difEC,'b','DisplayName','Diff Kinetic');
+%     p(2) = plot(DATA.TIME,difEL,'r','DisplayName','Diff Elastic');
+%     p(3) = plot(DATA.TIME,difEG,'g','DisplayName','Diff ENGD');
+    legend('Location','northwest');
+    xlabel('Time');
+    ylabel('Diff Energy');
+    set(axes2,'FontSize',14);
+%     set(p,'LineWidth',1.5);
+    grid on
+    box on
+    saveas(gcf,fullfile(path,'diff_Energy.png'))
 end
+
+%% IGNACIO...
+% Creo que lo que vos veias era esto...
+
+% figure();
+% plot(DATA.TIME,-difEG,'g','DisplayName','Diff ENGD');
+% xlabel('Time');
+% ylabel('Diff Energy');
+% grid on
+% box on
+% ylim([-25 2])
+% xlim([0 0.045])

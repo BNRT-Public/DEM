@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VisualStudioProject ProjectCreator="Intel Fortran" Keyword="Console Application" Version="11.0" ProjectIdGuid="{314CC1B0-CAA5-4E9A-9313-E52B05D685F3}">
+	<Platforms>
+		<Platform Name="Win32"/>
+		<Platform Name="x64"/></Platforms>
+	<Configurations>
+		<Configuration Name="Debug|Win32">
+				<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" DebugInformationFormat="debugEnabled" Parallelization="true" Preprocess="preprocessYes" FPPDefinesOnly="true" OpenMP="OpenMPParallelCode" WarnInterfaces="true" Traceback="true" BoundsCheck="true" RuntimeLibrary="rtMultiThreadedDebug" Interfaces="true"/>
+				<Tool Name="VFLinkerTool" LinkIncremental="linkIncrementalNo" SuppressStartupBanner="true" GenerateDebugInformation="true" SubSystem="subSystemConsole"/>
+				<Tool Name="VFResourceCompilerTool"/>
+				<Tool Name="VFMidlTool" SuppressStartupBanner="true"/>
+				<Tool Name="VFCustomBuildTool"/>
+				<Tool Name="VFPreLinkEventTool"/>
+				<Tool Name="VFPreBuildEventTool"/>
+				<Tool Name="VFPostBuildEventTool"/>
+				<Tool Name="VFManifestTool" SuppressStartupBanner="true"/></Configuration>
+		<Configuration Name="Release|Win32">
+				<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" DebugInformationFormat="debugEnabled"/>
+				<Tool Name="VFLinkerTool" LinkIncremental="linkIncrementalNo" SuppressStartupBanner="true" SubSystem="subSystemConsole"/>
+				<Tool Name="VFResourceCompilerTool"/>
+				<Tool Name="VFMidlTool" SuppressStartupBanner="true"/>
+				<Tool Name="VFCustomBuildTool"/>
+				<Tool Name="VFPreLinkEventTool"/>
+				<Tool Name="VFPreBuildEventTool"/>
+				<Tool Name="VFPostBuildEventTool"/>
+				<Tool Name="VFManifestTool" SuppressStartupBanner="true"/></Configuration>
+		<Configuration Name="Debug|x64">
+				<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" DebugInformationFormat="debugEnabled" MultiProcessorCompilation="true" Optimization="optimizeFull" GenAlternateCodePaths="codeForAVX" Parallelization="true" PrefetchInsertionOpt="prefetchMedium" BufferedIO="true" MatrixLibrary="mlYes" Preprocess="preprocessYes" EnableEnhancedInstructionSet="codeArchSSE2" OpenMP="OpenMPParallelCode" F2003Semantics="true" DebugParameter="debugParameterUsed" WarnInterfaces="true" Traceback="true" NullPointerCheck="true" BoundsCheck="true" RuntimeLibrary="rtMultiThreadedDebug" Interfaces="true"/>
+				<Tool Name="VFLinkerTool" LinkIncremental="linkIncrementalNo" SuppressStartupBanner="true" GenerateDebugInformation="true" SubSystem="subSystemConsole" StackReserveSize="64000000"/>
+				<Tool Name="VFResourceCompilerTool"/>
+				<Tool Name="VFMidlTool" SuppressStartupBanner="true" TargetEnvironment="midlTargetAMD64"/>
+				<Tool Name="VFCustomBuildTool"/>
+				<Tool Name="VFPreLinkEventTool"/>
+				<Tool Name="VFPreBuildEventTool"/>
+				<Tool Name="VFPostBuildEventTool"/>
+				<Tool Name="VFManifestTool" SuppressStartupBanner="true"/></Configuration>
+		<Configuration Name="Release|x64">
+				<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" DebugInformationFormat="debugEnabled"/>
+				<Tool Name="VFLinkerTool" LinkIncremental="linkIncrementalNo" SuppressStartupBanner="true" SubSystem="subSystemConsole"/>
+				<Tool Name="VFResourceCompilerTool"/>
+				<Tool Name="VFMidlTool" SuppressStartupBanner="true" TargetEnvironment="midlTargetAMD64"/>
+				<Tool Name="VFCustomBuildTool"/>
+				<Tool Name="VFPreLinkEventTool"/>
+				<Tool Name="VFPreBuildEventTool"/>
+				<Tool Name="VFPostBuildEventTool"/>
+				<Tool Name="VFManifestTool" SuppressStartupBanner="true"/></Configuration></Configurations>
+	<Files>
+		<Filter Name="constits">
+		<File RelativePath="..\src\constits\CONSTIT_BI.f90"/>
+		<File RelativePath="..\src\constits\CONSTIT_BI_SHEAR.f90"/>
+		<File RelativePath="..\src\constits\CONSTIT_LIN.f90"/>
+		<File RelativePath="..\src\constits\CONSTIT_TRI.f90"/></Filter>
+		<Filter Name="function">
+		<File RelativePath="..\src\function\GAMA.f90"/>
+		<File RelativePath="..\src\function\RAN0.f90"/>
+		<File RelativePath="..\src\function\RAND1.f90"/>
+		<File RelativePath="..\src\function\ROTMAT.f90"/>
+		<File RelativePath="..\src\function\SPECTRALROH.f90"/>
+		<File RelativePath="..\src\function\STA101.f90"/></Filter>
+		<Filter Name="main">
+		<File RelativePath="..\src\main\ALEATPGFR.f90"/>
+		<File RelativePath="..\src\main\ALEATPYNG.f90"/>
+		<File RelativePath="..\src\main\BOUND.f90"/>
+		<File RelativePath="..\src\main\CABAR.f90"/>
+		<File RelativePath="..\src\main\CALAUX.f90"/>
+		<File RelativePath="..\src\main\CALCOEV.f90"/>
+		<File RelativePath="..\src\main\CALCTIME.f90"/>
+		<File RelativePath="..\src\main\CALOAD.f90"/>
+		<File RelativePath="..\src\main\CONECTI.f90"/>
+		<File RelativePath="..\src\main\COORD.f90"/>
+		<File RelativePath="..\src\main\CREATENBSYM.f90"/>
+		<File RelativePath="..\src\main\edit_type_element.f90"/>
+		<File RelativePath="..\src\main\EDITGEOM.f90"/>
+		<File RelativePath="..\src\main\ENERG.f90"/>
+		<File RelativePath="..\src\main\IMPERF.f90"/>
+		<File RelativePath="..\src\main\INTEGRATION.f90"/>
+		<File RelativePath="..\src\main\LOAD.f90"/>
+		<File RelativePath="..\src\main\NAYFES8.f90"/>
+		<File RelativePath="..\src\main\NODMASS.f90"/>
+		<File RelativePath="..\src\main\PREPVAR.f90"/>
+		<File RelativePath="..\src\main\READAT.f90"/>
+		<File RelativePath="..\src\main\RMEC.f90"/>
+		<File RelativePath="..\src\main\STATISTICS.f90"/>
+		<File RelativePath="..\src\main\WINDOWS.f90"/></Filter>
+		<Filter Name="randomness">
+		<File RelativePath="..\src\randomness\CAMPOROH.f90"/>
+		<File RelativePath="..\src\randomness\INIROH.f90"/></Filter>
+		<Filter Name="subrutines">
+		<File RelativePath="..\src\subrutines\APPLYSYM.f90"/>
+		<File RelativePath="..\src\subrutines\COORDSUB.f90"/>
+		<File RelativePath="..\src\subrutines\DEBBARRAS.f90"/>
+		<File RelativePath="..\src\subrutines\DELAYTIME.f90"/>
+		<File RelativePath="..\src\subrutines\DIACO1.f90"/>
+		<File RelativePath="..\src\subrutines\DOMINF.f90"/>
+		<File RelativePath="..\src\subrutines\ELEMENTFAMILY.f90"/>
+		<File RelativePath="..\src\subrutines\EXTCO1.f90"/>
+		<File RelativePath="..\src\subrutines\FPROB.f90"/>
+		<File RelativePath="..\src\subrutines\INTCO1.f90"/>
+		<File RelativePath="..\src\subrutines\INTPOLO.f90"/>
+		<File RelativePath="..\src\subrutines\POSPOLO.f90"/>
+		<File RelativePath="..\src\subrutines\PRISMEDITGEOM.f90"/>
+		<File RelativePath="..\src\subrutines\RANDMEC.f90"/>
+		<File RelativePath="..\src\subrutines\RESIZESYM.f90"/>
+		<File RelativePath="..\src\subrutines\RMECDI.f90"/>
+		<File RelativePath="..\src\subrutines\RMECEX.f90"/>
+		<File RelativePath="..\src\subrutines\RMECIN.f90"/>
+		<File RelativePath="..\src\subrutines\SIZEPOLO.f90"/>
+		<File RelativePath="..\src\subrutines\UBARPOLO.f90"/></Filter>
+		<Filter Name="writefiles">
+		<File RelativePath="..\src\writefiles\ANSYS.f90"/>
+		<File RelativePath="..\src\writefiles\CLEARFILE.f90"/>
+		<File RelativePath="..\src\writefiles\CLOSE_FILES.f90"/>
+		<File RelativePath="..\src\writefiles\MODEL.f90"/>
+		<File RelativePath="..\src\writefiles\OPEN_FILES.f90"/>
+		<File RelativePath="..\src\writefiles\OPEN_MODEL.f90"/>
+		<File RelativePath="..\src\writefiles\OPENANSYSFEM.f90"/>
+		<File RelativePath="..\src\writefiles\OPENPARAVIEW.f90"/>
+		<File RelativePath="..\src\writefiles\PARAVIEW.f90"/>
+		<File RelativePath="..\src\writefiles\WRIACEL.f90"/>
+		<File RelativePath="..\src\writefiles\WRIBARBROKEN.f90"/>
+		<File RelativePath="..\src\writefiles\WRIBARDAMAGED.f90"/>
+		<File RelativePath="..\src\writefiles\WRIBOUND.f90"/>
+		<File RelativePath="..\src\writefiles\WRICONST.f90"/>
+		<File RelativePath="..\src\writefiles\WRICONTR.f90"/>
+		<File RelativePath="..\src\writefiles\WRIENCN.f90"/>
+		<File RelativePath="..\src\writefiles\WRIENE.f90"/>
+		<File RelativePath="..\src\writefiles\WRIFORCE.f90"/>
+		<File RelativePath="..\src\writefiles\WRIPOLOS.f90"/>
+		<File RelativePath="..\src\writefiles\WRIPOS.f90"/>
+		<File RelativePath="..\src\writefiles\WRITEN.f90"/>
+		<File RelativePath="..\src\writefiles\WRIVEL.f90"/></Filter>
+		<File RelativePath="..\src\DATA.dat"/>
+		<File RelativePath="..\src\DEM.f90"/>
+		<File RelativePath="..\src\VARIABLES_DATA.f90"/>
+		<File RelativePath="..\src\VARIABLES_DEM.f90"/></Files>
+	<Globals/></VisualStudioProject>
